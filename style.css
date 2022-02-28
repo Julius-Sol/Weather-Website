@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;&display=swap");
+
+:root {
+  --Orange: #f67a5c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 1rem;
+}
+
+/* ===================
+      Typogrophy 
+======================*/
+
+h1 {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 700;
+}
+
+header {
+  background-color: var(--Orange);
+}
+
+.current-temp {
+  font-size: 2.3rem;
+}
+
+.temp-degree,
+.hum-percent {
+  color: var(--Orange);
+}
+
+/* ===================
+        Layout
+====================== */
+
+/* Header */
+header {
+  padding: 2em 3em 5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.end-nav {
+  display: flex;
+}
+
+.search-icon {
+  margin-right: 2em;
+}
+
+@media screen and (max-width: 360px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .end-nav {
+    margin-top: 1em;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-icon {
+    width: 20%;
+  }
+}
+
+/* Main Weather */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper-main {
+  padding-top: 3em;
+  padding-bottom: 3em;
+  position: relative;
+  background-color: #fae7cf;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 60px;
+  top: -50px;
+  font-size: 1.3rem;
+}
+
+.main-weather-date {
+  margin-bottom: 0.8em;
+}
+
+.current-temp {
+  padding-top: 0.3em;
+  padding-bottom: 1em;
+}
+
+.main-weather-info {
+  grid-auto-columns: 1fr;
+  display: grid;
+  grid-template-areas:
+    "Max Min"
+    "Humidity Prec";
+  gap: 1em 0.5em;
+  padding-left: 1.5em;
+}
+
+.main-weather-info div {
+  max-width: 65px;
+  text-align: start;
+}
+
+.main-weather-info div h6::after {
+  position: relative;
+  display: block;
+  content: "";
+  width: 60%;
+  height: 1px;
+  background-color: black;
+  margin: 0.5em 0;
+}
+
+.info-min {
+  grid-area: Min;
+}
+.info-pre {
+  grid-area: Prec;
+}
+.info-max {
+  grid-area: Max;
+}
+.info-humidity {
+  grid-area: Humidity;
+}
+
+/* Toggle Switch */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 30px;
+}
+
+input {
+  visibility: hidden;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #7b6a5d;
+  border-radius: 10px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  top: 5px;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider::after {
+  color: white;
+  content: "F";
+  position: relative;
+  padding-left: 40px;
+  font-size: 1rem;
+}
+
+input:checked + .slider::after {
+  color: white;
+  content: "C";
+  padding-left: 5px;
+}
+
+input:checked + .slider {
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider::before {
+  -webkit-transform: translateX(15px);
+  -ms-transform: translateX(15px);
+  transform: translateX(30px);
+}

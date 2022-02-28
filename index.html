@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather</title>
+  </head>
+  <body>
+    <div>
+      <header>
+        <h1 class="city-name">City Name</h1>
+        <div class="end-nav">
+          <img src="images/search.svg" alt="Search icon" class="search-icon" />
+          <label class="switch">
+            <input type="checkbox" />
+            <div class="slider"></div>
+          </label>
+        </div>
+      </header>
+      <main>
+        <section class="wrapper">
+          <div class="wrapper-main">
+            <article class="main-weather-current">
+              <h2 class="main-weather-date">Sat, Feb 26</h2>
+              <h3>Sunny</h3>
+              <img src="images/search.svg" alt="Condition image" class="sunny" />
+              <p class="current-temp">65<span class="temp-degree">&#176;</span></p>
+              <div class="main-weather-info">
+                <div class="info-max">
+                  <h6>Max</h6>
+                  <p>71<span class="temp-degree">&#176;</span></p>
+                </div>
+                <div class="info-min">
+                  <h6>Min</h6>
+                  <p>62<span class="temp-degree">&#176;</span></p>
+                </div>
+                <div class="info-humidity">
+                  <h6>Humid.</h6>
+                  <p>47<span class="hum-percent">&#37;</span></p>
+                </div>
+                <div class="info-pre">
+                  <h6>Precip.</h6>
+                  <p>15<span class="hum-percent">&#37;</span></p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- <aside class="main-weather-weekly">
+            <div class="weekly-card">
+              <div class="weekly-card-date"></div>
+              <div class="weekly-card-temp">
+                <div class="info-max">
+                  <h6>Max</h6>
+                  <p>71<span class="temp-degree">&#176;</span></p>
+                </div>
+                <div class="info-min">
+                  <h6>Min</h6>
+                  <p>62<span class="temp-degree">&#176;</span></p>
+                </div>
+              </div>
+            </div>
+          </aside> -->
+        </section>
+
+        <div class="hourly"></div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
