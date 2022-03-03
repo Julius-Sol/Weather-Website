@@ -37,6 +37,10 @@ header {
   color: var(--Orange);
 }
 
+.weekly-card {
+  font-size: 0.8rem;
+}
+
 /* ===================
         Layout
 ====================== */
@@ -50,10 +54,13 @@ header {
 
 .end-nav {
   display: flex;
+  align-items: center;
 }
 
 .search-icon {
   margin-right: 2em;
+  display: block;
+  width: 30px;
 }
 
 @media screen and (max-width: 360px) {
@@ -67,7 +74,7 @@ header {
     justify-content: center;
   }
   .search-icon {
-    width: 20%;
+    width: 30px;
   }
 }
 
@@ -79,15 +86,15 @@ header {
 }
 
 .wrapper-main {
-  padding-top: 3em;
-  padding-bottom: 3em;
-  position: relative;
   background-color: #fae7cf;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  position: relative;
   border-radius: 60px;
   top: -50px;
   font-size: 1.3rem;
@@ -127,6 +134,10 @@ header {
   margin: 0.5em 0;
 }
 
+.current-weather-icon {
+  display: block;
+  width: 250px;
+}
 .info-min {
   grid-area: Min;
 }
@@ -160,7 +171,7 @@ input {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #7b6a5d;
+  background-color: white;
   border-radius: 10px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -176,27 +187,26 @@ input {
   width: 20px;
   left: 4px;
   top: 5px;
-  background-color: white;
+  background-color: #7b6a5d;
   border-radius: 10px;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 .slider::after {
-  color: white;
+  color: black;
   content: "F";
   position: relative;
-  padding-left: 40px;
+  padding-left: 50px;
   font-size: 1rem;
+  transition: ease 0.5s;
 }
 
 input:checked + .slider::after {
-  color: white;
+  color: black;
   content: "C";
   padding-left: 5px;
-}
-
-input:checked + .slider {
+  transition: ease 0.5s;
 }
 
 input:focus + .slider {
@@ -206,5 +216,88 @@ input:focus + .slider {
 input:checked + .slider::before {
   -webkit-transform: translateX(15px);
   -ms-transform: translateX(15px);
-  transform: translateX(30px);
+  transform: translateX(40px);
+}
+
+/* Weekly */
+
+.main-weather-weekly {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.weekly-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  gap: 5em;
+  width: 300px;
+}
+
+.weekly-card-temp {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+  gap: 2em;
+}
+
+.weekly-weather-icon {
+  max-width: 100px;
+}
+
+/* .hourly {
+  display: flex;
+  flex-direction: column;
+} */
+
+@media screen and (min-width: 810px) {
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fae7cf;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    position: relative;
+    border-radius: 60px;
+    top: -50px;
+    font-size: 1.3rem;
+  }
+
+  header {
+    max-width: 904px;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 20em;
+  }
+  .wrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper-main {
+    width: 30%;
+    background-color: transparent;
+  }
+
+  .main-weather-weekly {
+    width: 40%;
+  }
+
+  .weekly-card {
+    background-color: white;
+    padding: 2em;
+    border-radius: 16px;
+    margin-bottom: 1em;
+  }
+  .end-nav {
+    position: relative;
+    left: 1em;
+  }
+
+  .weekly-weather-icon {
+    max-width: 100px;
+  }
 }
