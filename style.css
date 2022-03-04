@@ -136,7 +136,9 @@ header {
 
 .current-weather-icon {
   display: block;
-  width: 250px;
+  max-width: 150px;
+  margin: 1em 0;
+  object-position: 10px;
 }
 .info-min {
   grid-area: Min;
@@ -160,7 +162,7 @@ header {
   height: 30px;
 }
 
-input {
+.toggle-switch {
   visibility: hidden;
 }
 
@@ -202,18 +204,18 @@ input {
   transition: ease 0.5s;
 }
 
-input:checked + .slider::after {
+.toggle-switch:checked + .slider::after {
   color: black;
   content: "C";
   padding-left: 5px;
   transition: ease 0.5s;
 }
 
-input:focus + .slider {
+.toggle-switch:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked + .slider::before {
+.toggle-switch:checked + .slider::before {
   -webkit-transform: translateX(15px);
   -ms-transform: translateX(15px);
   transform: translateX(40px);
@@ -245,24 +247,97 @@ input:checked + .slider::before {
 }
 
 .weekly-weather-icon {
-  max-width: 100px;
+  max-width: 90px;
+  margin: 1em 0;
 }
 
-/* .hourly {
+/* Search bar */
+
+.search-page {
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.closebtn {
+  z-index: 1001;
+  color: aliceblue;
+  font-size: 2.5rem;
+  align-self: flex-start;
+  margin-top: 1em;
+  font-weight: 400;
+}
+
+.search-background {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--Orange);
+  z-index: 99;
+}
+
+.search-box {
+  padding: 0.55em;
+  position: relative;
+  left: 1em;
+  width: 50%;
+  max-width: 900px;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.search-bar-icon {
+  display: block;
+  z-index: 300;
+  width: 40px;
+  background-color: #7b6a5d;
+  padding: 0.5em;
+  border-radius: 10px;
+}
+
+/* hourly */
+
+.hourly {
+  margin-top: 3em;
+  background-color: #7b6a5d;
   display: flex;
   flex-direction: column;
-} */
+  gap: 3em;
+  padding: 3em;
+  position: relative;
+  border-radius: 60px 60px 0 0;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hourly-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  text-align: center;
+}
+.hourly-weather-icon {
+  max-width: 90px;
+  margin: 1em 0;
+  filter: brightness(0%) invert(100%);
+}
+.hourly-temp {
+  font-size: 2.5rem;
+}
 
 @media screen and (min-width: 810px) {
   main {
     max-width: 1000px;
     margin: 0 auto;
-    background-color: #fae7cf;
-    padding-top: 3em;
-    padding-bottom: 3em;
-    position: relative;
-    border-radius: 60px;
-    top: -50px;
     font-size: 1.3rem;
   }
 
@@ -276,14 +351,51 @@ input:checked + .slider::before {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-color: #fae7cf;
+    padding-top: 3em;
+    position: relative;
+    border-radius: 60px;
+    top: -50px;
+    gap: 2em;
   }
   .wrapper-main {
-    width: 30%;
+    width: 40%;
     background-color: transparent;
   }
 
   .main-weather-weekly {
-    width: 40%;
+    width: 35%;
+    position: relative;
+    top: -1.5em;
+  }
+
+  .main-weather-date {
+    margin-bottom: 0.8em;
+    font-size: 2.3rem;
+  }
+
+  .current-temp {
+    font-size: 5rem;
+  }
+
+  .main-weather-current {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    font-size: 2rem;
+  }
+
+  .main-weather-info {
+    padding-left: 0;
+    gap: 1em 2em;
+  }
+
+  .current-weather-icon {
+    object-position: 0;
+    max-width: 200px;
   }
 
   .weekly-card {
@@ -291,6 +403,13 @@ input:checked + .slider::before {
     padding: 2em;
     border-radius: 16px;
     margin-bottom: 1em;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .weekly-date {
+    font-size: 1rem;
   }
   .end-nav {
     position: relative;
@@ -298,6 +417,24 @@ input:checked + .slider::before {
   }
 
   .weekly-weather-icon {
-    max-width: 100px;
+    max-width: 70px;
+  }
+  .hourly {
+    z-index: -1;
+    margin: 0;
+    padding-top: 10em;
+    position: relative;
+    flex-direction: row;
+    top: -10em;
+    gap: 1.7em;
+    padding-left: 7em;
+  }
+  .hourly-card {
+    flex-direction: column;
+    gap: 1em;
+    font-size: 1rem;
+  }
+  .hourly-temp {
+    font-size: 1.5rem;
   }
 }

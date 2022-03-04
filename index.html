@@ -8,70 +8,179 @@
     <title>Weather</title>
   </head>
   <body>
-    <div>
-      <header>
-        <h1 class="city-name">City Name</h1>
-        <div class="end-nav">
-          <img src="images/Search.png" alt="Search icon" class="search-icon" />
-          <label class="switch">
-            <input type="checkbox" />
-            <div class="slider"></div>
-          </label>
-        </div>
-      </header>
-      <main>
-        <section class="wrapper">
-          <div class="wrapper-main">
-            <article class="main-weather-current">
-              <h2 class="main-weather-date">Sat, Feb 26</h2>
-              <h3>Sunny</h3>
-              <img src="images/Sunny.png" alt="Condition image" class="current-weather-icon" />
-              <p class="current-temp">65<span class="temp-degree">&#176;</span></p>
-              <div class="main-weather-info">
-                <div class="info-max">
-                  <h6>Max</h6>
-                  <p>71<span class="temp-degree">&#176;</span></p>
-                </div>
-                <div class="info-min">
-                  <h6>Min</h6>
-                  <p>62<span class="temp-degree">&#176;</span></p>
-                </div>
-                <div class="info-humidity">
-                  <h6>Humid.</h6>
-                  <p>47<span class="hum-percent">&#37;</span></p>
-                </div>
-                <div class="info-pre">
-                  <h6>Precip.</h6>
-                  <p>15<span class="hum-percent">&#37;</span></p>
-                </div>
+    <div class="search-background">
+      <div class="search-page">
+        <input type="text" name="search-box" id="search-box" class="search-box" />
+        <img src="images/Search.png" alt="Search icon" class="search-bar-icon" />
+        <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
+      </div>
+    </div>
+    <header>
+      <h1 class="city-name">City Name</h1>
+      <div class="end-nav">
+        <img src="images/Search.png" alt="Search icon" class="search-icon" />
+        <label class="switch">
+          <input type="checkbox" class="toggle-switch" />
+          <div class="slider"></div>
+        </label>
+      </div>
+    </header>
+    <main>
+      <section class="wrapper">
+        <div class="wrapper-main">
+          <article class="main-weather-current">
+            <h2 class="main-weather-date">Sat, Feb 26</h2>
+            <h3>Sunny</h3>
+            <img src="images/Sunny.png" alt="Condition image" class="current-weather-icon" />
+            <p class="current-temp">65<span class="temp-degree">&#176;</span></p>
+            <div class="main-weather-info">
+              <div class="info-max">
+                <h6>Max</h6>
+                <p>71<span class="temp-degree">&#176;</span></p>
               </div>
-            </article>
-          </div>
-
-          <aside class="main-weather-weekly">
-            <div class="weekly-card">
-              <div class="weekly-card-date">
-                <h2 class="weekly-date">Sat, Feb 26</h2>
-                <img src="images/Sunny.png" alt="Condition image" class="weekly-weather-icon" />
-                <h3>Sunny</h3>
+              <div class="info-min">
+                <h6>Min</h6>
+                <p>62<span class="temp-degree">&#176;</span></p>
               </div>
-              <div class="weekly-card-temp">
-                <div class="info-max">
-                  <h6>Max</h6>
-                  <p>71<span class="temp-degree">&#176;</span></p>
-                </div>
-                <div class="info-min">
-                  <h6>Min</h6>
-                  <p>62<span class="temp-degree">&#176;</span></p>
-                </div>
+              <div class="info-humidity">
+                <h6>Humid.</h6>
+                <p>47<span class="hum-percent">&#37;</span></p>
+              </div>
+              <div class="info-pre">
+                <h6>Precip.</h6>
+                <p>15<span class="hum-percent">&#37;</span></p>
               </div>
             </div>
-          </aside>
-        </section>
+          </article>
+        </div>
 
-        <div class="hourly"></div>
-      </main>
-    </div>
+        <aside class="main-weather-weekly">
+          <div class="weekly-card">
+            <div class="weekly-card-date">
+              <h2 class="weekly-date">Sat, Feb 26</h2>
+              <img src="images/Sunny.png" alt="Condition image" class="weekly-weather-icon" />
+              <h3>Sunny</h3>
+            </div>
+            <div class="weekly-card-temp">
+              <div class="info-max">
+                <h6>Max</h6>
+                <p>71<span class="temp-degree">&#176;</span></p>
+              </div>
+              <div class="info-min">
+                <h6>Min</h6>
+                <p>62<span class="temp-degree">&#176;</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="weekly-card">
+            <div class="weekly-card-date">
+              <h2 class="weekly-date">Sat, Feb 26</h2>
+              <img src="images/Sunny.png" alt="Condition image" class="weekly-weather-icon" />
+              <h3>Sunny</h3>
+            </div>
+            <div class="weekly-card-temp">
+              <div class="info-max">
+                <h6>Max</h6>
+                <p>71<span class="temp-degree">&#176;</span></p>
+              </div>
+              <div class="info-min">
+                <h6>Min</h6>
+                <p>62<span class="temp-degree">&#176;</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="weekly-card">
+            <div class="weekly-card-date">
+              <h2 class="weekly-date">Sat, Feb 26</h2>
+              <img src="images/Sunny.png" alt="Condition image" class="weekly-weather-icon" />
+              <h3>Sunny</h3>
+            </div>
+            <div class="weekly-card-temp">
+              <div class="info-max">
+                <h6>Max</h6>
+                <p>71<span class="temp-degree">&#176;</span></p>
+              </div>
+              <div class="info-min">
+                <h6>Min</h6>
+                <p>62<span class="temp-degree">&#176;</span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="weekly-card">
+            <div class="weekly-card-date">
+              <h2 class="weekly-date">Sat, Feb 26</h2>
+              <img src="images/Sunny.png" alt="Condition image" class="weekly-weather-icon" />
+              <h3>Sunny</h3>
+            </div>
+            <div class="weekly-card-temp">
+              <div class="info-max">
+                <h6>Max</h6>
+                <p>71<span class="temp-degree">&#176;</span></p>
+              </div>
+              <div class="info-min">
+                <h6>Min</h6>
+                <p>62<span class="temp-degree">&#176;</span></p>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <div class="hourly">
+        <div class="hourly-card">
+          <div class="hourly-info">
+            <h3 class="hourly-weather-time">12:00pm</h3>
+            <img src="images/Sunny.png" alt="Condition image" class="hourly-weather-icon" />
+            <h4>Sunny</h4>
+          </div>
+          <p class="hourly-temp">65<span>&#176;</span></p>
+        </div>
+        <div class="hourly-card">
+          <div class="hourly-info">
+            <h3 class="hourly-weather-time">12:00pm</h3>
+            <img src="images/Sunny.png" alt="Condition image" class="hourly-weather-icon" />
+            <h4>Sunny</h4>
+          </div>
+          <p class="hourly-temp">65<span>&#176;</span></p>
+        </div>
+        <div class="hourly-card">
+          <div class="hourly-info">
+            <h3 class="hourly-weather-time">12:00pm</h3>
+            <img src="images/Sunny.png" alt="Condition image" class="hourly-weather-icon" />
+            <h4>Sunny</h4>
+          </div>
+          <p class="hourly-temp">65<span>&#176;</span></p>
+        </div>
+        <div class="hourly-card">
+          <div class="hourly-info">
+            <h3 class="hourly-weather-time">12:00pm</h3>
+            <img src="images/Sunny.png" alt="Condition image" class="hourly-weather-icon" />
+            <h4>Sunny</h4>
+          </div>
+          <p class="hourly-temp">65<span>&#176;</span></p>
+        </div>
+        <div class="hourly-card">
+          <div class="hourly-info">
+            <h3 class="hourly-weather-time">12:00pm</h3>
+            <img src="images/Sunny.png" alt="Condition image" class="hourly-weather-icon" />
+            <h4>Sunny</h4>
+          </div>
+          <p class="hourly-temp">65<span>&#176;</span></p>
+        </div>
+        <div class="hourly-card">
+          <div class="hourly-info">
+            <h3 class="hourly-weather-time">12:00pm</h3>
+            <img src="images/Sunny.png" alt="Condition image" class="hourly-weather-icon" />
+            <h4>Sunny</h4>
+          </div>
+          <p class="hourly-temp">65<span>&#176;</span></p>
+        </div>
+      </div>
+    </main>
+
     <script src="script.js"></script>
   </body>
 </html>
