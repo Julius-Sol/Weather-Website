@@ -345,7 +345,7 @@ header {
     max-width: 904px;
     margin: 0 auto;
     justify-content: center;
-    gap: 20em;
+    gap: 21em;
   }
   .wrapper {
     flex-direction: row;
@@ -413,7 +413,7 @@ header {
   }
   .end-nav {
     position: relative;
-    left: 1em;
+    left: 6em;
   }
 
   .weekly-weather-icon {
