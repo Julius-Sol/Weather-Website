@@ -28,9 +28,12 @@ const cityToCordinates = async (city, unit) => {
     let url = `${apiGeocodingUrl}` + `${city}&limit=2&appid=${WEATHER_API_KEY}`;
     const response = await fetch(url);
     const geoCord = await response.json();
-    currentWeather(geoCord, unit);
+    let lat = geoCord[0].lat;
+    let lon = geoCord[0].lon;
+    currentWeather(lat, lon, unit);
+    hideSearch();
   } catch (error) {
-    console.log(error);
+    alert("Please Enter a valid City");
   }
 };
 
@@ -46,9 +49,9 @@ const cityToCordinates = async (city, unit) => {
 // };
 
 // Function to call openweather current API and display data into the current weather html section
-const currentWeather = async (cordArray, unit) => {
+const currentWeather = async (Latitude, Longitude, unit) => {
   try {
-    let url = apiCurrentWeather + `lat=${cordArray[0].lat}&lon=${cordArray[0].lon}&units=${unit.unitSystem}&appid=${WEATHER_API_KEY}`;
+    let url = apiCurrentWeather + `lat=${Latitude}&lon=${Longitude}&units=${unit.unitSystem}&appid=${WEATHER_API_KEY}`;
     const response = await fetch(url);
     const currentData = await response.json();
     // globalCurrentData = currentData;
@@ -105,6 +108,10 @@ searchIcon.addEventListener("click", () => {
   searchElement.style.display = "block";
 });
 
+const displaySearch = () => {
+  searchElement.style.display = "block";
+};
+
 const hideSearch = () => {
   searchElement.style.display = "none";
 };
@@ -115,5 +122,13 @@ document.querySelector(".form-search").addEventListener("submit", (event) => {
   event.preventDefault();
   let unit = unitVerify();
   cityToCordinates(event.target[0].value, unit);
-  hideSearch();
 });
+
+navigator.geolocation.getCurrentPosition(
+  (location) => {
+    let units = unitVerify();
+    // currentWeather(location.coords.latitude, location.coords.longitude, units);
+    hideSearch();
+  },
+  (error) => {}
+);
