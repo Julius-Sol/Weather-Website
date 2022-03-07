@@ -33,8 +33,13 @@ header {
 }
 
 .temp-degree,
-.hum-percent {
+.hum-percent,
+.wind-speed {
   color: var(--Orange);
+}
+
+.wind-speed {
+  font-size: 0.7rem;
 }
 
 .weekly-card {
@@ -290,7 +295,7 @@ header {
   border: none;
   outline: none;
   color: black;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .search-bar-icon {
@@ -345,7 +350,11 @@ header {
     max-width: 904px;
     margin: 0 auto;
     justify-content: center;
-    gap: 21em;
+    gap: 23em;
+  }
+
+  .wind-speed {
+    font-size: 1rem;
   }
   .wrapper {
     flex-direction: row;

@@ -8,13 +8,15 @@
     <title>Weather</title>
   </head>
   <body>
-    <div class="search-background">
-      <div class="search-page">
-        <input type="text" name="search-box" id="search-box" class="search-box" />
-        <img src="images/Search.png" alt="Search icon" class="search-bar-icon" />
-        <span class="closebtn" title="Close Overlay">x</span>
+    <form method="POST" class="form-search">
+      <div class="search-background">
+        <div class="search-page">
+          <input type="text" name="search-box" id="search-box" class="search-box" />
+          <input type="image" src="images/Search.png" alt="Search icon" class="search-bar-icon" />
+          <span class="closebtn" title="Close Overlay">x</span>
+        </div>
       </div>
-    </div>
+    </form>
     <header>
       <h1 class="city-name">City Name</h1>
       <div class="end-nav">
@@ -48,7 +50,7 @@
               </div>
               <div class="info-pre">
                 <h6>Wind</h6>
-                <p>15<span class="hum-percent">&#37;</span></p>
+                <p>15<span class="wind-speed">MPH</span></p>
               </div>
             </div>
           </article>
