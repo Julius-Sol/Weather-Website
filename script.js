@@ -20,7 +20,7 @@ const currentWeatherWind = document.querySelector(".info-pre > p");
 
 //API URLs
 const apiCurrentWeather = "https://api.openweathermap.org/data/2.5/weather?";
-const apiUrl = "https://api.openweathermap.org/data/2.5/";
+const apiOneCallUrl = "https://api.openweathermap.org/data/2.5/";
 const apiGeocodingUrl = "http://api.openweathermap.org/geo/1.0/direct?q=";
 
 //Function that takes the name of a city and produces that city's Latitude and Longitude
@@ -32,22 +32,24 @@ const cityToCordinates = async (city, unit) => {
     let lat = geoCord[0].lat;
     let lon = geoCord[0].lon;
     currentWeather(lat, lon, unit);
+    oneCallAPI(lat, lon, unit);
     hideSearch();
   } catch (error) {
     alert("Please Enter a valid City");
   }
 };
 
-// const oneCallAPI = async (cordArray) => {
-//   try {
-//     const url = `${apiUrl}` + `onecall?lat=${cordArray[0].lat}&lon=${cordArray[0].lon}&exclude=minutely,alerts&units=imperial&appid=${WEATHER_API_KEY}`;
-//     const response = await fetch(url);
-//     const weatherData = await response.json();
-//     console.log(weatherData);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const oneCallAPI = async (Latitude, Longitude, unit) => {
+  try {
+    const url = `${apiOneCallUrl}` + `onecall?lat=${Latitude}&lon=${Longitude}&exclude=minutely,alerts,current&units=${unit.unitSystem}&appid=${WEATHER_API_KEY}`;
+    const response = await fetch(url);
+    const weatherData = await response.json();
+    console.log(weatherData);
+    weeklyCreator(weatherData.daily);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // Function to call openweather current API and display data into the current weather html section
 const currentWeather = async (Latitude, Longitude, unit) => {
@@ -133,3 +135,5 @@ navigator.geolocation.getCurrentPosition(
   },
   (error) => {}
 );
+
+export default getDateTitle;
