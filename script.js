@@ -1,5 +1,6 @@
 import WEATHER_API_KEY from "./apiKey.js";
 import weeklyCreator from "./weeklyWeather.js";
+import hourlyCreator from "./hourlyWeather.js";
 
 //DOM objects
 const unitTemperature = document.querySelector(".toggle-switch");
@@ -46,6 +47,7 @@ const oneCallAPI = async (Latitude, Longitude, unit) => {
     const weatherData = await response.json();
     console.log(weatherData);
     weeklyCreator(weatherData.daily);
+    hourlyCreator(weatherData.hourly);
   } catch (error) {
     console.log(error);
   }
@@ -130,7 +132,8 @@ document.querySelector(".form-search").addEventListener("submit", (event) => {
 navigator.geolocation.getCurrentPosition(
   (location) => {
     let units = unitVerify();
-    // currentWeather(location.coords.latitude, location.coords.longitude, units);
+    currentWeather(location.coords.latitude, location.coords.longitude, units);
+    oneCallAPI(location.coords.latitude, location.coords.longitude, units);
     hideSearch();
   },
   (error) => {}

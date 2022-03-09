@@ -242,6 +242,7 @@ header {
   text-align: center;
   gap: 5em;
   width: 300px;
+  margin-bottom: 3em;
 }
 
 .weekly-card-temp {
