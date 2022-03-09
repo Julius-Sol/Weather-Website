@@ -1,4 +1,5 @@
 import WEATHER_API_KEY from "./apiKey.js";
+import weeklyCreator from "./weeklyWeather.js";
 
 //DOM objects
 const unitTemperature = document.querySelector(".toggle-switch");
