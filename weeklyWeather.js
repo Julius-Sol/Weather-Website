@@ -1,4 +1,4 @@
-import getDateTitle from "./script.js";
+import { imagePath, getDateTitle } from "./script.js";
 
 const weeklyAside = document.querySelector(".main-weather-weekly");
 
@@ -24,7 +24,9 @@ const weeklyCreator = (weeklyArray) => {
     cardDate.append(weeklyDate);
 
     const weeklyImg = document.createElement("img");
-    weeklyImg.src = "images/Sunny.png";
+
+    const imageLocation = imagePath(weeklyArray[i].weather[0].main, weeklyArray[i].weather[0].description);
+    weeklyImg.src = imageLocation;
     weeklyImg.alt = "Condition image";
     weeklyImg.classList.add("weekly-weather-icon");
     cardDate.append(weeklyImg);

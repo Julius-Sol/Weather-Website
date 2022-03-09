@@ -1,3 +1,5 @@
+import { imagePath } from "./script.js";
+
 const hourlyContainer = document.querySelector(".hourly");
 
 const hourlyCreator = (hourlyArray) => {
@@ -22,7 +24,8 @@ const hourlyCreator = (hourlyArray) => {
     cardInfo.append(hourTime);
 
     const hourImg = document.createElement("img");
-    hourImg.src = "images/Sunny.png";
+    const imageLocation = imagePath(hourlyArray[i].weather[0].main, hourlyArray[i].weather[0].description);
+    hourImg.src = imageLocation;
     hourImg.alt = "Condition image";
     hourImg.classList.add("hourly-weather-icon");
     cardInfo.append(hourImg);

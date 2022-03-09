@@ -18,11 +18,35 @@ const currentWeatherMax = document.querySelector(".info-max > p");
 const currentWeatherMin = document.querySelector(".info-min > p");
 const currentWeatherHumidity = document.querySelector(".info-humidity > p");
 const currentWeatherWind = document.querySelector(".info-pre > p");
+const currentWeatherImage = document.querySelector(".current-weather-icon");
 
 //API URLs
 const apiCurrentWeather = "https://api.openweathermap.org/data/2.5/weather?";
 const apiOneCallUrl = "https://api.openweathermap.org/data/2.5/";
 const apiGeocodingUrl = "http://api.openweathermap.org/geo/1.0/direct?q=";
+
+export const imagePath = (main, description) => {
+  let imageSource = "images/Fog.png";
+  if (main == "Thunderstorm") {
+    imageSource = "images/Thunderstorm.png";
+  }
+  if (main == "Rain" || main == "Drizzle") {
+    imageSource = "images/Rain.png";
+  }
+  if (main == "Snow") {
+    imageSource = "images/Snow.png";
+  }
+  if (main == "Clear") {
+    imageSource = "images/Sunny.png";
+  }
+  if (main == "Clouds") {
+    if (description == "few clouds") {
+      imageSource = "images/Partly Cloudy.png";
+    }
+    imageSource = "images/Cloudy.png";
+  }
+  return imageSource;
+};
 
 //Function that takes the name of a city and produces that city's Latitude and Longitude
 const cityToCordinates = async (city, unit) => {
@@ -67,6 +91,9 @@ const currentWeather = async (Latitude, Longitude, unit) => {
     const date = getDateTitle(currentData.dt);
     currentWeatherDate.textContent = date;
 
+    const imageLocation = imagePath(currentData.weather[0].main, currentData.weather[0].description);
+    currentWeatherImage.src = imageLocation;
+
     currentWeatehrCondition.textContent = currentData.weather[0].main;
     console.log(currentData.weather[0].main);
     currentWeatherTemperature.innerHTML = Math.round(currentData.main.temp) + `<span class="temp-degree">&#176;</span>`;
@@ -81,7 +108,7 @@ const currentWeather = async (Latitude, Longitude, unit) => {
 };
 
 //Function that take a unix time and converts it to the format of [Day of the week], [Month(text)] [day]
-const getDateTitle = (unixTime) => {
+export const getDateTitle = (unixTime) => {
   let date = new Date(unixTime * 1000).toDateString();
   let dateStart = date.substring(0, 3);
   date = dateStart.concat("," + date.substring(3, 10));
@@ -138,5 +165,3 @@ navigator.geolocation.getCurrentPosition(
   },
   (error) => {}
 );
-
-export default getDateTitle;
